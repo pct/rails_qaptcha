@@ -1,3 +1,4 @@
+# coding: utf-8
 # 
 #  qaptchas_controller.rb
 #  rails_qaptcha
@@ -9,15 +10,15 @@
 class QaptchasController < ApplicationController
 
   def check
-    iqaptcha = params[:iQapTcha]
+    iqaptcha = params[:qaptcha_key]
     if iqaptcha.blank?
-      session[:iQapTcha] = true 
-      msg = "Form can be submited!"
+      session[:qaptcha_key] = true 
+      msg = "通過認證！"
     else
-      session[:iQapTcha] = false
-      msg = "Form can not be submited!"
+      session[:qaptcha_key] = false
+      msg = "沒有通過認證！"
     end
-    @result = {:check => session[:iQapTcha], :msg => msg}
+    @result = {:check => session[:qaptcha_key], :msg => msg}
     respond_to do |format|
       format.json { render :json => @result.to_json }
     end
