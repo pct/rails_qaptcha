@@ -10,14 +10,21 @@
 class QaptchasController < ApplicationController
 
   def check
+    _check = params[:action]
     iqaptcha = params[:qaptcha_key]
-    if iqaptcha.blank?
-      session[:qaptcha_key] = true 
-      msg = "通過認證！"
-    else
+
+    if _check and iqaptcha
       session[:qaptcha_key] = false
-      msg = "沒有通過認證！"
+
+      if _check == 'qaptcha'
+        session[:qaptcha_key] = params[:qaptcha_key]
+        msg = "passed!"
+      else
+        session[:qaptcha_key] = false
+        msg = "you should not pass!"
+      end
     end
+
     @result = {:check => session[:qaptcha_key], :msg => msg}
     respond_to do |format|
       format.json { render :json => @result.to_json }
