@@ -1,7 +1,8 @@
 jQuery slide captcha system with jQuery & jQuery UI for Rails 3
-=========================================================
+===============================================================
 
 __modify from: [QapTcha](http://www.myjqueryplugins.com/QapTcha "QapTcha")__
+__modify from: [rails_qaptcha](https://github.com/ZhangHanDong/rails_qaptcha "rails_qaptcha")__
 
 Support Env:
 ------------
@@ -17,21 +18,14 @@ Then:
 
     rails g rails_qaptcha:install
 
-In layout:
+And add the following div to your form:
 
-    = stylesheet_link_tag :qaptcha
-    = javascript_include_tag :qaptcha
-
-In your haml page place the following div:
-
-    #QapTcha
+    <div class="QapTcha"></div>
 
 In your application.js:
 
     $(document).ready(function(){
-        $('#QapTcha').QapTcha({autoRevert:true});
-        // or
-        $('.QapTcha').QapTcha({autoRevert:true});
+      $('.QapTcha').QapTcha({disabledSubmit:true,autoRevert:true,autoSubmit:true});
     });
 
-##If you want to control it in server side, you need to judge session[:iQapTcha]##
+##If you want to control it in server side, you need to judge session[:qaptcha_key]##
