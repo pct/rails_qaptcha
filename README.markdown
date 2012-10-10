@@ -11,7 +11,7 @@ Rails3.0.8+/Ruby1.8.7+
 
 In Gemfile:
 
-    gem 'rails_qaptcha'
+    gem 'rails_qaptcha', :git => 'git://github.com/pct/rails_qaptcha.git'
 
 Then:
 
