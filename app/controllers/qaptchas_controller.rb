@@ -10,7 +10,7 @@
 class QaptchasController < ApplicationController
 
   def check
-    _check = params[:action]
+    _check = params[:_check]
     iqaptcha = params[:qaptcha_key]
 
     if _check and iqaptcha
