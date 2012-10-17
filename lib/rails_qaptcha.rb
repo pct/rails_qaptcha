@@ -1,4 +1,4 @@
-require_relative 'rails'
+require 'rails'
 require "rails_qaptcha/version"
 require "rails_qaptcha/engine"
 

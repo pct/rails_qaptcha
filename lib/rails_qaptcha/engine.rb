@@ -1,4 +1,4 @@
-require_relative 'rails'
+require 'rails'
 
 module RailsQaptcha
   class Engine < Rails::Engine
