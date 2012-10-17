@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 require "rails_qaptcha/version"
-require "rails_qaptcha/engine"
 require 'rake'
 
 Gem::Specification.new do |s|
